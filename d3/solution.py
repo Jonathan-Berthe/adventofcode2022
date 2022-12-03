@@ -10,7 +10,7 @@ class Rucksack:
     self.first_compartment  = all_items_str[:number_of_items//2]
     self.second_compartment = all_items_str[number_of_items//2:]
   
-  def shared_item(self):
+  def shared_item_between_compartment(self):
     # See https://bobbyhadz.com/blog/python-find-common-characters-between-two-strings
     return ''.join(
       set(self.first_compartment).intersection(self.second_compartment)
@@ -29,7 +29,7 @@ class Rucksack:
 all_rucksacks = list(map(lambda line: Rucksack(line), lines))
 
 print("SOLUTION PART 1:")
-print(sum(list(map(lambda rucksack: Rucksack.get_item_priority(rucksack.shared_item()), all_rucksacks))))
+print(sum(list(map(lambda rucksack: Rucksack.get_item_priority(rucksack.shared_item_between_compartment()), all_rucksacks))))
 
 print("SOLUTION PART 2:")
 total_prio = 0
