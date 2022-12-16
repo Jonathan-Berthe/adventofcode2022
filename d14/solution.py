@@ -1,7 +1,9 @@
 with open('./input.txt') as f:
   lines = list(map(lambda line: list(map(lambda e: list(map(lambda c: int(c), e.split(","))),line.replace("\n", "").split(" -> "))),f.readlines()))
 
-part = 1 # Variable: part = i => part i of exercise
+import time
+start = time.time()
+part = 2 # Variable: part = i => part i of exercise
 
 # Find min and max x
 min_x = lines[0][0][0]
@@ -111,3 +113,6 @@ while not check:
 
 print('SOLUTION PART '+ str(part) + ":" )
 print(count - 1 if part == 1 else count)
+
+end = time.time()
+print(end - start)
